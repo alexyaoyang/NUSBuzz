@@ -1,0 +1,332 @@
+!!! 5
+html
+  head
+    title NUS Buzz
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    link(rel='stylesheet', href='https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css')
+    link(rel='stylesheet', href='/stylesheets/codiqa.ext.css')
+    link(href='/stylesheets/styles.css', type='text/css', rel='stylesheet')
+    link(href='/stylesheets/photoswipe.css', type='text/css', rel='stylesheet')
+    script(type='text/javascript', src='/javascripts/klass.min.js')
+    script(type='text/javascript', src='/javascripts/code.photoswipe.jquery-3.0.5.min.js')
+    script(type='text/javascript', src='/javascripts/code.photoswipe-3.0.5.min.js')
+    script(src='http://code.jquery.com/jquery-1.8.3.min.js')
+    script(src='https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js')
+    script(src='https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js')
+    script(src='/javascripts/loadUserDetail.js')
+    script(src='/javascripts/loadItemsBrief.js')
+    script(src='/javascripts/loadItemDetailed.js')
+    script(src='/javascripts/loadTransAll.js')
+    script(src='/javascripts/loadTransPending.js')
+    script(src='/javascripts/loadTransBidded.js')
+    script(src='/javascripts/loadSearch.js')
+    script(src='/javascripts/loadBuyers.js')
+    script(src='/javascripts/selectChange.js')
+    script(src='/javascripts/clearSell.js')
+    script(src='/javascripts/validateSellForm.js')
+    script(type='text/javascript')
+        function goBack()
+            {
+                  window.history.back();
+            }
+
+    body
+
+    #login(data-role='page', data-theme='c')
+      div(data-role='header', data-theme='b')
+        h1 NUS Buzz
+      div(data-role='content', data-theme='b')
+        div(align='center')
+          img(src='http://i867.photobucket.com/albums/ab232/directfame/Alex%20Projects/iCreate%20C01/nusbuzz_zpsa624bb58.png', width='250')
+          button(onclick='window.location.href=\'https://ec2-54-245-54-168.us-west-2.compute.amazonaws.com/login\'', data-theme='a', data-corners='true') Login via IVLE
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #home(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='logout', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+            | Logout
+        h1 NUS Buzz
+      div(data-role='content')
+        div(data-role='navbar', data-iconpos='top')
+          ul
+            li
+              a.ui-btn-active.ui-state-persist(href='#home', data-transition='fade', data-theme='', data-icon='home')
+                | Home
+            li
+              a(href='#category', data-transition='fade', data-theme='', data-icon='bars')
+                | Category
+            li
+              a(href='#profile', data-transition='fade', data-theme='', data-icon='info')
+                | Profile
+        br
+        br
+        div(data-role='fieldcontain')
+          input#searchIn(placeholder='Search for a product', value='', type='text')
+          a(data-role='button', href='#search', data-theme='b', onclick="return loadSearch(document.getElementById('searchIn').value);")
+           | Search 
+        br
+        a(data-role='button', href='#sell', data-theme='a', onclick="return clearSell();")
+          | Sell a product!
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #category(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='logout', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+            | Logout
+        h1 NUS Buzz
+      div(data-role='content')
+        div(data-role='navbar', data-iconpos='top')
+          ul
+            li
+              a(href='#home', data-transition='fade', data-theme='', data-icon='home')
+                | Home
+            li
+              a.ui-btn-active.ui-state-persist(href='#category', data-transition='fade', data-theme='', data-icon='bars')
+                | Category
+            li
+              a(href='#profile', data-transition='fade', data-theme='', data-icon='info')
+                | Profile
+        ul(data-role='listview', data-divider-theme='b', data-inset='true')
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('automobile');")
+              | Automobile
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('books');")
+              | Books
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('clothing');")
+              | Clothing
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('collectables');")
+              | Collectables
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('electronics');")
+              | Electronics
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('food');")
+              | Food & Beverage
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('games');")
+              | Games
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('jewellery');")
+              | Jewellery
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('sports');")
+              | Sports Equipment
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('stationery');")
+              | Stationery
+          li(data-theme='c')
+            a(href='#itemList', data-transition='slide', onclick="return loadItemsBrief('toys');")
+              | Toys
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #profile(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='#home', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Home
+        h1 NUS Buzz
+        a(data-role='button', href='#transPage', data-iconpos='right', data-icon='arrow-r', data-theme='a')
+          | Bids
+      div(data-role='content')
+       form(name='profile', method='post', enctype='multipart/form-data', data-ajax='false', action='/api/1.0/user/details/update?callback=/#home')
+        div.nusID(data-role='fieldcontain')
+          label(for='name') NUSNET:
+          input#nusID(name='nusID', type='text', readonly='readonly')
+        div.name(data-role='fieldcontain')
+          label(for='name') Name:
+          input#name(type='text')
+        div.handphone(data-role='fieldcontain')
+          label(for='name') Handphone:
+          input#handphone(name='handphone', type='text')
+        div.email(data-role='fieldcontain')
+          label(for='name') Email:
+          input#email(name='email', type='text')
+        div.dateJoin(data-role='fieldcontain')
+          label(for='name') Join Date:
+          input#dateJoin(type='text', readonly='readonly')
+        div.rep(data-role='fieldcontain', style='display: none;')
+          label(for='name') Reputation Points:
+          input#rep(type='text', readonly='readonly')
+        div.alerts(data-role='fieldcontain')
+         fieldset(data-role='controlgroup')
+          legend Alerts:
+          input#mobileAlert(type='radio',name='alerts', value='Mobile')
+          label(for='mobileAlert') Mobile
+          input#emailAlert(type='radio',name='alerts', value='Email')
+          label(for='emailAlert') Email
+        input.saveDetails(type='submit', data-role='button', value='Save', data-transition='fade', data-icon='', data-theme='a')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #sell(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', data-inline='true', href='#home', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Back
+        h1 NUS Buzz
+      div(data-role='content')
+       form#sellForm(method='post', enctype='multipart/form-data', data-ajax='false', action='/api/1.0/buzz/item/create?callback=/#home', onsubmit="return validateSellForm();")
+        div.itemName(data-role='fieldcontain')
+          label(for='name', style='color: red') *
+          input.name(name='name', placeholder='Item Name', value='', type='text')
+        div.detail(data-role='fieldcontain')
+          label(for='detail', style='color: red') *
+          input.detail(name='detail', placeholder='Detail', value='', type='text')
+        div.category(data-role='fieldcontain')
+          label(for='category', style='color: red') *
+          select#selectmenu1(name='category')
+            option(disabled='disabled')
+            option(value='Category', disabled='disabled', selected='true')
+              | Choose a category
+            option(value='Automobile')
+              | Automobile
+            option(value='Books')
+              | Books
+            option(value='Clothing')
+              | Clothing
+            option(value='Collectibles')
+              | Collectibles
+            option(value='Electronics')
+              | Electronics
+            option(value='Food & Beverage')
+              | Food & Beverage
+            option(value='Games')
+              | Games
+            option(value='Jewellery')
+              | Jewellery
+            option(value='Sports Equipment')
+              | Sports Equipment
+            option(value='Stationery')
+              | Stationery
+            option(value='Toys')
+              | Toys
+        div.tags(data-role='fieldcontain')
+          label(for='tags', style='color: red') *
+          input.tags(name='tags', placeholder='Tags', value='', type='text')
+        div.minBid(data-role='fieldcontain')
+          label
+          input.minBid(name='minBid', placeholder='Minimum Bid (eg. 5$)', value='', type='text')
+        div.condition(data-role='fieldcontain')
+          label
+          input.condition(name='condition', placeholder='Condition (eg. 8/10)', value='', type='text', onclick='this.value="/10";')
+        div.file(data-role='fieldcontain')
+          //span Upload Image:
+          label Upload Image:
+          input.file(type='file', name='file')
+        div(data-role='navbar', data-iconpos='top')
+          input.sell(data-role='button', type='submit', value='Sell', data-transition='fade', data-icon='', data-theme='a')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #viewItemDetail(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', data-inline='true', onClick="goBack();", data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Back
+        h1 NUS Buzz
+      div(data-role='content')
+       form(method='post', enctype='multipart/form-data', data-ajax='false', action='/api/1.0/buzz/item/pushbid?callback=/#category')
+        div.nusID(data-role='fieldcontain', style='display: none;')
+          input#nusbID(name='nusID', value='', data-mini='true', type='text')
+        div.id(data-role='fieldcontain', style='display: none;')
+          input#id(name='id', value='', data-mini='true', type='text')
+        div.bid(data-role='fieldcontain')
+          input#bid(name='bid', placeholder='Enter Bid', value='', data-mini='true', type='text', data-inline='true')
+          input#placeBid(data-role='button', type='submit', value='Place Bid', onclick='alert("Bid placed!");', data-transition='fade', data-theme='a', data-inline='true', data-mini='true')
+       div.itemName(data-role='fieldcontain')
+          label(for='name') Item Name:
+          input#iname(value='', data-mini='true', type='text', readonly='readonly')
+       div.detail(data-role='fieldcontain')
+          label(for='name') Detail:
+          input#idetail(value='', data-mini='true', type='text', readonly='readonly')
+       div.category(data-role='fieldcontain')
+          label(for='name') Category:
+          input#icategory(value='', data-mini='true', type='text', readonly='readonly')
+       div.tags(data-role='fieldcontain')
+          label(for='name') Tags:
+          input#itags(value='', data-mini='true', type='text', readonly='readonly')
+       div.minBid(data-role='fieldcontain')
+          label(for='name') Minimum Bid:
+          input#iminBid(value='', data-mini='true', type='text', readonly='readonly')
+       div.allBids(data-role='fieldcontain', style='display: none;')
+          label(for='name') All Bids:
+          input#iAllBids(value='', data-mini='true', type='text', readonly='readonly')
+       div.condition(data-role='fieldcontain')
+          label(for='name') Condition:
+          input#icondition(value='', data-mini='true', type='text', readonly='readonly')
+       div.highestBid(data-role='fieldcontain')
+          label(for='name') Highest Bid:
+          input#iHighestBid(value='', data-mini='true', type='text', readonly='readonly')
+       div#img(data-role='fieldcontain', style='display: inline-block; overflow-x:scroll; overflow-y:hidden; white-space:nowrap;')
+          //a#afile(href='', rel='external')
+          img#ifile(src='')
+                    //
+          //a#afile(href='')
+            img#ifile(src='', style='width:280px')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #search(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='#home', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Back
+        h1 NUS Buzz
+        div(data-role='fieldcontain')
+          ul#searchList(data-role='listview', data-divider-theme='b', data-inset='true')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #itemList(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='#category', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Back
+        h1 NUS Buzz
+      div#autoListDiv(data-role='content')
+        div(style='float: right; display: none;')
+          select#selectmenu2(data-native-menu='false', name='')
+            option(value='Ending Soon')
+              | Ending Soon
+            option(value='Price')
+              | Price
+            option(value='Popular')
+              | Popular
+        div(data-role='fieldcontain')
+          ul#autoList(data-role='listview', data-divider-theme='b', data-inset='true')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+    #transPage(data-role='page')
+          div(data-role='header', data-theme='b')
+              a(data-role='button', href='#profile', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+                  | Profile
+              h1 NUS Buzz
+          div(data-role='content')
+              select#transChange(data-native-menu='false')
+                  option#allTrans(selected='selected', disabled='disabled')
+                      | Choose one
+                  option#allTrans1(value='#allTransPage')
+                      | All My Items
+                  option#itemsWithBidders(value='#itemsWithBiddersPage')
+                      | My Items with Bidders
+                  option#itemsBiddedFor(value='#itemsBiddedForPage')
+                      | Items I Had Bidded For
+              div(data-role='fieldcontain')
+                  ul#transList(data-role='listview', data-divider-theme='b', data-inset='true')
+          div(data-role='footer', data-theme='b')
+              h4 &copy; Team JAVA
+
+    #buyers(data-role='page')
+      div(data-role='header', data-theme='b')
+        a(data-role='button', href='#transPage', data-icon='arrow-l', data-iconpos='left', data-theme='a')
+          | Bids
+        h1 NUS Buzz
+      div(data-role='content')
+        ul#buyersList(data-role='listview', data-divider-theme='b', data-inset='true')
+      div(data-role='footer', data-theme='b')
+        h4 &copy; Team JAVA
+
+
