@@ -13,7 +13,7 @@ Built with Jade, CSS, JQuery, Node & MongoDB.
 http://youtu.be/mgBSIiFbISU
 
 ## Team Members
-Alex Yao
-Joel Tong
-Shresta Vijay
-Alex Peh
+* Alex Yao
+* Joel Tong
+* Shresta Vijay
+* Alex Peh
